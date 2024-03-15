@@ -2,6 +2,7 @@
 ## LinuxTips Giropops Senhas
 
 ## Requerimentos
+* Docker instalado, seguir documentação em [documentação](https://docs.docker.com/engine/install/)
 Para iniciar a aplicação, siga os passos abaixo:
 
 1. Faça o build da imagem da aplicação e suba para o Docker Hub:
