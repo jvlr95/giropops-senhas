@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   giropops-senhas:
-    container_name: giropops-senhas
+    image: jvlr9510/linuxtips-giropops-senhas
     build: .
     ports:
       - "5000:5000"
