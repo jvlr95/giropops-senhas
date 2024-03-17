@@ -1,15 +1,15 @@
 # Estágio de construção
-FROM alpine:3.15.9 AS builder
-RUN apk update && apk add git --no-cache
-RUN git clone https://github.com/badtuxx/giropops-senhas.git
-WORKDIR /giropops-senhas
-RUN apk update && apk add redis py-pip --no-cache && pip install --no-cache-dir -r requirements.txt
-RUN pip install Flask werkzeug===2.2.2
+FROM python:3.9-slim AS builder
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Estágio final
-FROM alpine:3.15.9
-RUN apk add --no-cache python3 py3-flask py3-redis
-COPY --from=builder /giropops-senhas /giropops-senhas
-WORKDIR /giropops-senhas
+FROM python:3.9-slim
+WORKDIR /app
+COPY --from=builder /app /app
+EXPOSE 5000
+RUN pip install flask redis prometheus_client
 ENTRYPOINT ["flask", "run", "--host=0.0.0.0"]
-

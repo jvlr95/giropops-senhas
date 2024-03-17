@@ -3,24 +3,17 @@ version: '3.8'
 services:
   giropops-senhas:
     container_name: giropops-senhas
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
       - "5000:5000"
     environment:
       - REDIS_HOST=redis
-    networks:
-      - redis-net
     depends_on:
       - redis
 
   redis:
     container_name: redis
     image: redis:7.2
-    networks:
-      - redis-net
 
 networks:
   redis-net:
-
