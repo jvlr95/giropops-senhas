@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   giropops-senhas:
-    image: jvlr9510/linuxtips-giropops-senhas
+    image: jvlr9510/chainguard-giropops-senhas:1.0
     build: .
     ports:
       - "5000:5000"
