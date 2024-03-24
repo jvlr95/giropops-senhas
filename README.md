@@ -33,4 +33,3 @@ A primeira imagem buildada foi `jvlr9510/linuxtips-giropops-senhas:chaiguard` e 
 
 Após isso, foi alterada a versão de todas dependências seguindo o esquema de fixed e atualizado o arquivo `./requirements.txt`. Foi buildada uma nova imagem com a tag `jvlr9510/linuxtips-giropops-senhas:chaiguardv1.0`, esta sem vulnerabilidades registradas no momento, conforme evidenciado em anexo `./Sem-Vulnerabilidades.png`.
 ```
-
