@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   giropops-senhas:
-    image: jvlr9510/chainguard-giropops-senhas:1.0
-    build: .
+    container_name: giropops-senhas
+    image: jvlr9510/chainguard-giropops-senhas:latest
     ports:
       - "5000:5000"
     environment:
