@@ -1,12 +1,8 @@
-Claro! Aqui está o README.md atualizado:
-
----
-
-# Desafio do Dia 2 da Linux Tips - Giropops Senhas
-## LinuxTips Giropops Senhas
-
-## Requerimentos
-* Docker instalado, seguir guia de instalação em [documentação](https://docs.docker.com/engine/install/)
+# Atualizando desafio do dia 2 para uso de distroless da Linux Tips - Giropops Senhas
+* LinuxTips Giropops Senhas
+* Imagens de container da Chainguard
+* Requerimentos
+- Docker instalado, seguir guia de instalação em [documentação](https://docs.docker.com/engine/install/)
 
 Para iniciar a aplicação, siga os passos abaixo:
 
@@ -21,10 +17,10 @@ Para iniciar a aplicação, siga os passos abaixo:
    services:
      giropops-senhas:
        container_name: giropops-senhas
-       # image: jvlr9510/chainguard-giropops-senha:latest
+       #image: jvlr9510/chainguard-giropops-senha:latest
        build:
          context: .
-         dockerfile: ./Dockerfile:1.0
+         dockerfile: ./Dockerfile
        ports:
          - "5000:5000"
        depends_on:
@@ -48,8 +44,5 @@ Para iniciar a aplicação, siga os passos abaixo:
     docker compose down
     ```
 
-**IMPORTANTE:** Deixe comentada a linha que define a imagem no serviço `giropops-senhas` para utilizar o build.
-
 ---
 
-**FIXME:** Distroless com Chainguard está apresentando problemas com o Flask durante a execução da aplicação. Estamos analisando erro.
