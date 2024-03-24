@@ -9,11 +9,8 @@ RUN pip install -r requirements.txt
 FROM cgr.dev/chainguard/python:latest
 
 WORKDIR /app
-ENV PATH="/home/nonroot/.local/bin:$PATH"
-
-# Copy the Flask module to /usr/local/bin
-COPY --from=builder /home/nonroot/.local/lib/python3.12/site-packages/flask /usr/local/bin/
-
+COPY --from=builder /app /app
+ENV PATH="/app:$PATH"
 COPY app.py .
 
 ENTRYPOINT ["flask", "run", "--host=0.0.0.0"]

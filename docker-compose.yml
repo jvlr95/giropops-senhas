@@ -3,7 +3,10 @@ version: '3.8'
 services:
   giropops-senhas:
     container_name: giropops-senhas
-    image: jvlr9510/chainguard-giropops-senhas:latest
+    # image: jvlr9510/chainguard-giropops-senhas:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile:1.0
     ports:
       - "5000:5000"
     environment:
