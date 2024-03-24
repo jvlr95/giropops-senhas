@@ -32,5 +32,3 @@ Nesta etapa, utilizamos uma imagem Python para execução da aplicação. Copiam
 ## Chainguard
 
 Chainguard é uma ferramenta de segurança que pode ser utilizada para garantir a segurança do ambiente Docker, porém, sem mais detalhes sobre a configuração específica utilizada, não é possível fornecer informações detalhadas sobre como ela está sendo aplicada neste contexto.
-```
-
