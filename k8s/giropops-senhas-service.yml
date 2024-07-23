@@ -10,7 +10,5 @@ spec:
   ports:
     - protocol: TCP
       port: 5000
-      nodePort: 32500
-      targetPort: 5000
       name: tcp-app
   type: ClusterIP
