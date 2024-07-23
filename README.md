@@ -1,5 +1,9 @@
 # LinuxTips Giropops Senhas
 
+---
+*** Repositorio com objetivo de servir como laboratorio para aulas do curso Programa Intensivo de Containers e Kubernetes da LinuxTips***
+---
+
 ## Imagens de container da Chainguard
 
 ### Requerimentos
