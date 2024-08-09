@@ -5,6 +5,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/auth-type: "basic"
+    nginx.ingress.kubernetes.io/auth-secret: "giropops-senhas-users"
+    nginx.ingress.kubernetes.io/auth-realm: "Autenticação necessaria"
 spec:
   ingressClassName: nginx
   rules:
