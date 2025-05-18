@@ -1,0 +1,31 @@
+redis-deployment:
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.redis.labels.app }}
+    owner: {{ .Values.redis.labels.owner }}
+    type: {{ .Values.redis.labels.type }}
+  name: {{ .Values.redis.name }}
+spec:
+  replicas: {{ .Values.redis.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.redis.labels.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.redis.labels.app }} 
+    spec:
+      containers:
+      - image: {{ .Values.redis.image }}
+        name: redis
+        ports:
+          - containerPort: {{ .Values.redis.service.targetPort }}
+        resources:
+          limits:
+            memory: {{ .Values.redis.resources.limits.memory }}
+            cpu: {{ .Values.redis.resources.limits.cpu }}
+          requests:
+            memory: {{ .Values.redis.resources.requests.memory }}
+            cpu: {{ .Values.redis.resources.requests.cpu }}

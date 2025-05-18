@@ -3,11 +3,13 @@ kind: ServiceMonitor
 metadata: 
   name: giropops-servicemonitor 
   labels: 
-    app: giropops-senhas 
+    app: {{ .Values.giropopsSenhas.labels.app }}
+    owner: {{ .Values.giropopsSenhas.labels.owner }}
+    type: {{ .Values.giropopsSenhas.labels.type }}
 spec: 
   selector: 
     matchLabels: 
-      app: giropops-senhas 
+      app: {{ .Values.giropopsSenhas.labels.app }}
   endpoints: 
     - interval: 10s 
       path: /metrics 

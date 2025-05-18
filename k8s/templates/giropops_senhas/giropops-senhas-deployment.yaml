@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.giropopsSenhas.labels.app }}
+    owner: {{ .Values.giropopsSenhas.labels.owner }}
+    type: {{ .Values.giropopsSenhas.labels.type }}
+  name: {{ .Values.giropopsSenhas.name }}
+spec:
+  replicas: {{ .Values.giropopsSenhas.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.giropopsSenhas.labels.app }}
+      owner: {{ .Values.giropopsSenhas.labels.owner }}
+      type: {{ .Values.giropopsSenhas.labels.type }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.giropopsSenhas.labels.app }}
+        owner: {{ .Values.giropopsSenhas.labels.owner }}
+        type: {{ .Values.giropopsSenhas.labels.type }}
+    spec:
+      containers:
+        - name: giropops-senhas
+          image: {{ .Values.giropopsSenhas.image }}
+          env:
+          - name: REDIS_HOST
+            value: redis-svc.giropops-helm.svc.cluster.local
+          ports:
+            - containerPort: {{ .Values.giropopsSenhas.service.port }}
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: {{ .Values.giropopsSenhas.resources.limits.cpu }}
+              memory: {{ .Values.giropopsSenhas.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.giropopsSenhas.resources.requests.cpu }}
+              memory: {{ .Values.giropopsSenhas.resources.requests.memory }}

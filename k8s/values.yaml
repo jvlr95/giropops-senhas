@@ -1,0 +1,42 @@
+giropopsSenhas:
+  name: "giropops-senhas-helm"
+  image: "jvlr9510/linuxtips-giropops-senhas:chainguardv1.0"
+  replicas: 1
+  labels:
+    app: "giropops-senhas-helm"
+    owner: "linuxtips"
+    type: "web-app"
+  service:
+    name: "giropops-senhas-svc"
+    type: "ClusterIP"
+    port: 5000
+    targetPort: 5000
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "25m"
+    limits:
+      memory: "128Mi"
+      cpu: "50m"
+
+redis:
+  name: "redis-helm"
+  image: "redis"
+  replicas: 1
+  labels:
+    app: "redis-helm"
+    owner: "linuxtips"
+    type: "datasource-cache"
+  service:
+    name: "redis-svc"
+    type: "ClusterIP"
+    port: 6379
+    targetPort: 6379
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "25m"
+    limits:
+      memory: "128Mi"
+      cpu: "50m"
+
